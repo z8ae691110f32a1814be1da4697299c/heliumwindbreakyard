@@ -10,41 +10,14 @@
 		<script type="text/javascript">
 			document.addEventListener('DOMContentLoaded', function() {
 					function a() {
-						console.log("a");
-						try {
-							window.webkit.messageHandlers.YOnePro.postMessage({
-								add: ""
-							});
-						} catch (e) {}
-					}
-					async function getData() {
-						try {
-							var str = 'https://6acf8dd703feaa52b21eb85e.mockapi.io/IBITBEST/data'
-							const response = await fetch(str, {
-								cache: 'no-store'
-							});
-							if (!response.ok) {
-								getData();
-							}
-							const arr = await response.json();
-							console.log(arr);
-							const dic = arr[0];
-							if (Object.hasOwn(dic, 'a')) {
-								console.log("b");
-								try {
-									window.webkit.messageHandlers.YOnePro.postMessage({
-										ui: dic
-									});
-								} catch (e) {}
-								window.location.href = dic["a"];
-							} else {
-								a()
-							}
-						} catch (error) {
-							console.error('Fetch error:', error);
-						}
-					}
-					getData();
+					console.log("a");
+					try {
+						window.webkit.messageHandlers.YOnePro.postMessage({
+							add: ""
+						});
+					} catch (e) {}
+				}
+				a()
 			});
 		</script>
 	</body>
